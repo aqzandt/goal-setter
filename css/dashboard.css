@@ -1,3 +1,13 @@
+.space {
+    padding-top: 1em;
+}
+
+.input:placeholder-shown {
+    font-style: italic;
+    font-size: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
 #siteHeader {
     padding-top: 2em;
     font-family: Arial, Helvetica, sans-serif
