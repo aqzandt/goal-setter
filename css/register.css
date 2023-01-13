@@ -1,0 +1,37 @@
+.space {
+    padding-top: 1em;
+}
+
+.input:placeholder-shown {
+    font-style: italic;
+    font-size: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+
+#siteHeader {
+    padding-top: 2em;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#textHeader {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#firstSpace {
+    padding-top: 1em;
+}
+
+#about {
+    resize: none;
+}
+
+#submit {
+    height: 3em;
+    width: 5em;
+    font-size: 15px;
+}
+
+body {
+    background-color: #f1f7ff;
+}
