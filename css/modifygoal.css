@@ -53,7 +53,7 @@ body {
     box-shadow: 2px 2px;
     position:absolute;
     left:70%;
-    top:8%;
+    top:10%;
 }
 
 #modifbutton:hover{
@@ -80,13 +80,13 @@ body {
 #goalform{
     position: absolute;
     left: 10%;
-    top: 27%;
+    top: 22%;
 }
 
 #dateform{
     position: absolute;
     left: 10%;
-    top: 35%;
+    top: 27%;
 }
 
 .deletebutton{
@@ -180,13 +180,13 @@ textarea{
 }
 
 .targetvalueloc{
-    position:relative;
-    left:6.5%
+    position:absolute;
+    left:30%
 }
 
 .actualvalueloc{
-    position:relative;
-    left:8%;
+    position:absolute;
+    left:40%;
 }
 
 #addtarget{
@@ -196,8 +196,9 @@ textarea{
     font-style:normal;
     background-color: green;
     box-shadow: 2px 2px;
-    position:relative;
-    left:237%
+    position:absolute;
+    left:72.5%;
+    top:35%
 }
 
 #addtarget:hover{
