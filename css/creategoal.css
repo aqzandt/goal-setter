@@ -1,0 +1,191 @@
+body {
+    background-color: #f1f7ff;
+}
+
+#icon {
+    position: absolute;
+    left: 17%;
+    top: 5%;
+}
+
+#iconbutton{
+    border: none;
+    color: white;
+    padding: 0px 0px;
+    transition-duration: 0.4s;
+    cursor: pointer;  
+}
+
+#icontext{
+    position: relative;
+    left: -20%;
+}
+
+#siteHeader {
+    padding-top: 2em;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.style1{
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size:20px;
+}
+
+.bigstyle1{
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size:25px;
+}
+
+.holder::placeholder{
+    color:gray;
+    opacity:1;
+    font-style: italic;
+}
+
+
+#createbutton{
+    height:70px;
+    width: 180px;
+    color:white;
+    font-style:normal;
+    background-color: green;
+    box-shadow: 2px 2px;
+    position:absolute;
+    left:70%;
+    top:20%;
+}
+
+#createbutton:hover{
+    background-color: darkgreen;
+}
+
+
+#goalform{
+    position: absolute;
+    left: 10%;
+    top: 27%;
+}
+
+#dateform{
+    position: absolute;
+    left: 10%;
+    top: 35%;
+}
+
+.deletebutton{
+    height: 33px;
+    width: 33px;
+    color:black;
+    background-color: red;
+    box-shadow: 2px 2px;
+}
+
+.deletebutton:hover{
+    color:white;
+    background-color: darkred;
+}
+
+.deletebuttontext{
+    font-size:25px;
+    font-style:italic;
+}
+
+textarea{
+    height:auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.targetloc{
+    position: relative;
+    left: 8%;
+    top: 50%;
+}
+
+.targetname{
+    position: relative;
+    left:2%;
+    top: 0%;
+}
+
+.targetbuttontext{
+    font-size:20px;
+    font-style:normal;
+}
+
+.choicebuttonloc{
+    position: absolute;
+    left:53%;
+    top: -10%;
+}
+
+.choicebuttonaspect{
+    height: 33px;
+    width: 130px;
+    color:black;
+    font-style:normal;
+    background-color: white;
+    box-shadow: 2px 2px;
+}
+
+.choicebuttonaspect:hover{
+    color:white;
+    background-color: aqua;
+}
+
+.donebuttonloc{
+    position: absolute;
+    left:30%;
+    top: -10%;
+}
+
+.donebuttonaspect{
+    height: 33px;
+    width: 130px;
+    color:black;
+    font-style:normal;
+    background-color: white;
+    box-shadow: 2px 2px;
+}
+
+.donebuttonaspect:hover{
+    color:white;
+    background-color: aqua;
+}
+
+.inputaspect{
+    height: 33px;
+    width: 130px;
+    color:black;
+    font-style:normal;
+    background-color: white;
+}
+
+.targetvalueloc{
+    position:relative;
+    left:6.5%
+}
+
+.actualvalueloc{
+    position:relative;
+    left:8%;
+}
+
+#addtarget{
+    height: 60px;
+    width: 180px;
+    color:white;
+    font-style:normal;
+    background-color: green;
+    box-shadow: 2px 2px;
+    position:relative;
+    left:237%
+}
+
+#addtarget:hover{
+        background-color: darkgreen;
+}
+
