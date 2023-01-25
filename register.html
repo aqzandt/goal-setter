@@ -1,66 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goal Setter - Sign Up</title>
     <link rel="stylesheet" href="css/register.css">
+    <script defer type="text/javascript" src="js/register.js"></script>
 </head>
+
 <body>
     <center>
         <div id="icon">
-            <button id="iconbutton", href="login.html"><a href="index.html">
-            <img src="res/goal2.png" alt="Goal Setter Icon",width=100px height=100px>
-            </a></button>
+            <button id="iconbutton" , href="login.html"><a href="index.html">
+                    <img src="res/goal2.png" alt="Goal Setter Icon" ,width=100px height=100px>
+                </a></button>
             <br>
-            <div class="style1" id="icontext"><b>Goal Setter - Home</b></div>
+            <b>Goal Setter - Home</b>
         </div>
 
         <h1 id="siteHeader">Sign Up</h1>
 
         <div id="firstSpace"></div>
 
-        <form action="" target="_blank">
-        <input class="input"  type="Text" id="email" name="email" placeholder="@" size="45"> <br>
-        <div class="space"></div>
-        <input class="input" type="Text" id="userid" name="userid" placeholder="User ID" size="45"> <br>
-        <div class="space"></div>
-        <input class="input" type="Text" id="password" name="password" placeholder="Password" size="45"> <br>
-        <div class="space"></div>
-        <input class="input" type="Text" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" size="45"> <br>
-        <div class="space"></div>
+        <form action="" id="form" onsubmit="return false">
+            <input class="input" type="Text" id="email" name="email" placeholder="@"> <br>
 
-        <input class="input" type="Text" id="fname" name="fname" placeholder="First Name">
-        <input class="input" type="Text" id="lname" name="lname" placeholder="Last Name"> <br>
-        <div class="space"></div>
+            <div class="errMessageDiv">
+                <h3 class="errMessage" id="emailErr"></h3>
+            </div>
 
-        <input class="input" type="Text" id="country" name="country" placeholder="Country">
-        <input class="input" type="Text" id="zip" name="zip" placeholder="ZIP code"> <br>
+            <input class="input" type="Text" id="userid" name="userid" placeholder="User ID"> <br>
 
-        <div class="space"></div>
-        <input class="input" type="Text" id="lang" name="lang" placeholder="Language" size="15">
+            <div class="errMessageDiv">
+                <h3 class="errMessage" id="userErr"></h3>
+            </div>
 
-        <input type="radio" id="maleChoice" name="gender" value="Male" />
-        <label for="maleChoice">Male</label>
-  
-        <input type="radio" id="femaleChoice" name="gender" value="Female" />
-        <label for="femaleChoice">Female</label>
-  
-        <input type="radio" id="OtherChoice" name="gender" value="Other" />
-        <label for="OtherChoice">Other</label>
+            <input class="input" type="Text" id="password" name="password" placeholder="Password"> <br>
 
-        <div class="space"></div>
+            <div class="errMessageDiv">
+                <h3 class="errMessage" id="passErr"></h3>
+            </div>
 
-        <textarea class="input" id="about" cols="45" rows="7" name="about" placeholder="About you..."></textarea>
-        
-        <div class="space"></div>
+            <input class="input" type="Text" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password"
+            required> <br>
 
-        <input type="submit" onclick="window.location.href = 'index.html';" value="Sign Up" id="submit">
+            <div class="errMessageDiv">
+                <h3 class="errMessage" id="confirmPassErr"></h3>
+            </div>
+
+            <input class="input" type="Text" id="fName" name="fName" placeholder="First Name">
+
+            <input class="input" type="Text" id="lName" name="lName" placeholder="Last Name"> <br>
+            <div class="twoBoxDiv">
+                <div class="leftBox">
+                    <h3 class="errMessage" id="fNameErr"></h3>
+                </div>
+
+                <div class="rightBox">
+                    <h3 class="errMessage" id="lNameErr"></h3>
+                </div>
+            </div>
+
+
+            <input class="input" type="Text" id="country" name="country" placeholder="Country">
+            <input class="input" type="Text" id="zip" name="zip" placeholder="ZIP code"> <br>
+
+            <div class="twoBoxDiv">
+                <div class="leftBox">
+                    <h3 class="errMessage" id="countryErr"></h3>
+                </div>
+
+                <div class="rightBox">
+                    <h3 class="errMessage" id="zipErr"></h3>
+                </div>
+            </div>
+
+            <input class="input" type="Text" id="address" name="address" placeholder="Address"> <br>
+
+            <div class="errMessageDiv">
+                <h3 class="errMessage"></h3>
+            </div>
+
+            <input class="input" type="Text" id="lang" name="lang" placeholder="Language" size="15">
+
+            <input type="radio" id="maleChoice" name="gender" value="Male" />
+            <label for="maleChoice">Male</label>
+
+            <input type="radio" id="femaleChoice" name="gender" value="Female" />
+            <label for="femaleChoice">Female</label>
+
+            <input type="radio" id="OtherChoice" name="gender" value="Other" />
+            <label for="OtherChoice">Other</label>
+
+            <div id="langGenderBoxes">
+                <div id="langBox">
+                    <h3 class="errMessage" id="langErr"></h3>
+                </div>
+
+                <div id="genderBox">
+                    <h3 class="errMessage" id="genderErr"></h3>
+                </div>
+            </div>
+
+            <textarea class="input" id="about" cols="45" rows="7" name="about" placeholder="About you..."></textarea>
+
+            <div class="space"></div>
+
+            <input type="submit" value="Sign Up" id="submit" onclick="formValidate()">
 
         </form>
     </center>
-    
-    
 </body>
+
 </html>

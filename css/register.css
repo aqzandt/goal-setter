@@ -6,8 +6,29 @@
     font-style: italic;
     font-size: 90%;
     font-family: Arial, Helvetica, sans-serif;
- }
+}
 
+.input {
+    width: 293px;
+    font-size: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#fName,
+#lName,
+#zip,
+#country {
+    width: 143px;
+}
+
+#lang {
+    width: 105px;
+}
+
+#form {
+    width: 320px;
+    margin: 0 auto;
+}
 
 #icon {
     padding-top: 3vw;
@@ -30,6 +51,58 @@
     height: 3em;
     width: 5em;
     font-size: 15px;
+}
+
+.errMessageDiv {
+    margin: 0 auto;
+    margin-top: 0;
+    width: 293px;
+    height: 30px;
+}
+
+.errMessage {
+    margin: 0 auto;
+    text-align: left;
+    font-size: 70%;
+    font-family: sans-serif;
+}
+
+.twoBoxDiv {
+    margin: 0 auto;
+    margin-top: 0;
+    width: 293px;
+    height: 30px;
+}
+
+.leftBox {
+    float: left;
+    width: 143px;
+    height: 30px;
+}
+
+.rightBox {
+    float: right;
+    width: 143px;
+    height: 30px;
+}
+
+#langGenderBoxes {
+    margin: 0 auto;
+    margin-top: 0;
+    width: 320px;
+    height: 30px;
+}
+
+#langBox {
+    float: left;
+    width: 113px;
+    height: 30px;
+}
+
+#genderBox {
+    float: right;
+    width: 200px;
+    height: 30px;
 }
 
 body {
