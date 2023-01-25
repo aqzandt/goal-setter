@@ -19,12 +19,13 @@
             <br>
             <b>Goal Setter - Home</b>
         </div>
-
+        <br>
+        <div id="infoplace"><p id="info"></p></div>
         <h1 id="siteHeader">Sign Up</h1>
 
         <div id="firstSpace"></div>
 
-        <form action="" id="form" onsubmit="return false">
+        <form action="" id="form" onsubmit="return false" onsubmit="stopsub()">
             <input class="input" type="Text" id="email" name="email" placeholder="@"> <br>
 
             <div class="errMessageDiv">
@@ -108,10 +109,82 @@
 
             <div class="space"></div>
 
-            <input type="submit" value="Sign Up" id="submit" onclick="formValidate()">
+            <input type="submit" value="Sign Up" id="submit">
 
         </form>
     </center>
+    
+    <script>
+
+      //declare & initialize all the tracker variables
+      let clickcount=0;
+      let keypresses=0;
+      let charcount=0;
+      let timespent=0;
+
+      //start counting the time
+      let timestart=new Date().getTime();
+
+      //initialize the event listeners for the clicks and the key presses
+      const button = document.getElementById("bod");
+      //event listener for a click
+      button.addEventListener("click", addClick);
+      //event listener for a key press
+      document.addEventListener("keydown",addKeyPress);
+      //get event listeners for the textboxes to check for character introductions
+      const textboxes = document.getElementsByClassName('input');
+      for (var i=0;i<textboxes.length;i++){
+        textboxes[i].addEventListener('keydown', addChar)
+      }
+      
+      //add a click
+      function addClick() {
+        clickcount++;
+      }
+
+      //add a keypress to the count
+      function addKeyPress(){
+        keypresses++;
+      }
+
+      //if we select a textbox, track the character count
+      function addChar(){
+        //actual characters (letters and numbers and symbols) on an ascii table are from 32 to 126,
+        //so we check if the key code is between those 2 values
+        if (event.keyCode >=32 && event.keyCode <=126 ) {
+            charcount++;
+        }
+      }
+
+      //show the information
+      function write(){
+        //compute the spent time
+        let timeend=new Date().getTime();
+        timespent=(timeend-timestart)/1000;
+
+        //change the block to visible
+        document.getElementById("infoplace").style.display="block";
+        //generate the string to be outputted
+        var string="Number of clicks: "+clickcount
+            +"\nTotal key presses: "+keypresses
+            +"\nTotal characters introduced: "+charcount
+            +"\nTime spent: "+Math.round(Math.floor(timespent)/60)+" minutes and "+Math.round(Math.floor(timespent)%60)+" seconds";
+        //output the string
+        pHolder=document.getElementById("info");
+        pHolder.innerHTML=string;
+      }
+
+      //function to prevent the redirecting when submitting the form
+      function stopsub(){
+        //stops the redirecting
+        event.preventDefault();
+        //writes the information
+        write();
+        sendContactForm();
+      }
+
+
+    </script>
 </body>
 
 </html>
