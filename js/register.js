@@ -78,7 +78,7 @@ function requireCheck(input, message) {
 
 //Check if email matches correct pattern
 function emailCheck(input, message) {
-    const pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]$/;
+    const pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]+$/;
     if (pattern.test(input)) {
         message.innerHTML = "Looks good!";
         return true;
