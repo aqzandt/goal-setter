@@ -2,8 +2,7 @@ console.log("js loaded!");
 
 //Client-side validation of registration form
 function formValidate() {
-    console.log("Registered Click");
-    
+
     //Define form messages HTML elements
     const emailMessage = document.getElementById("emailErr");
     const userMessage = document.getElementById("userErr");
@@ -78,8 +77,15 @@ function requireCheck(input, message) {
 
 //Check if email matches correct pattern
 function emailCheck(input, message) {
-    const pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]+$/;
-    if (pattern.test(input)) {
+    let valid = true;
+    let dotIndex = input.indexOf(".");
+    let atSignIndex = input.indexOf("@");
+    if (atSignIndex <= 0) {
+        valid = false;
+    } else if (dotIndex <= 2 || dotIndex < atSignIndex) {
+        valid = false;
+    }
+    if (valid) {
         message.innerHTML = "Looks good!";
         return true;
     } else {
@@ -89,12 +95,27 @@ function emailCheck(input, message) {
 
 //Check if userID matches correct pattern
 function userCheck(input, message) {
-    const pattern = /^[A-Z]([\w]+)?([^A-Za-z0-9]|[0-9])$/;
-    const length1 = /.{13,}/;
-    const length2 = /.{5,}/;
-    if (!pattern.test(input)) {
+    const length = input.length;
+    const specialChars = [
+        '[', '`', '!', '@',  '#', '$', '%',
+        '^', '&', '*', '(',  ')', '_', '+',
+        '-', '=', '[', ']',  '{', '}', ';',
+        "'", ':', '"', '\\', '|', ',', '.',
+        '<', '>', '/', '?',  '~', ']', '/'
+      ];
+    let firstLetterUpper = false;
+    let lastCharSpecial = false;
+    if (input.substring(0, 1) === input.substring(0, 1).toUpperCase()) {
+        firstLetterUpper = true;
+    }
+
+    if (!isNaN(input.slice(-1) * 1) || specialChars.includes(input.slice(-1))) {
+        lastCharSpecial = true;
+    }
+
+    if (!(firstLetterUpper && lastCharSpecial)) {
         message.innerHTML = "User ID must start with an uppercase letter and end with a number or special character.";
-    } else if (length1.test(input) || !length2.test(input)){
+    } else if (length < 5 || length > 12) {
         message.innerHTML = "User ID must be of length 5 to 12.";
     } else {
         message.innerHTML = "Looks good!";
@@ -104,19 +125,54 @@ function userCheck(input, message) {
 
 //Check if password is strong enough
 function passwordCheck(input, message) {
-    const pattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/;
-    const length1 = /.{12,}/;
-    const length2 = /.{14,}/;
-    if (!pattern.test(input)) {
+
+    const specialChars = [
+        '[', '`', '!', '@',  '#', '$', '%',
+        '^', '&', '*', '(',  ')', '_', '+',
+        '-', '=', '[', ']',  '{', '}', ';',
+        "'", ':', '"', '\\', '|', ',', '.',
+        '<', '>', '/', '?',  '~', ']', '/'
+      ];
+
+    let hasLower = false;
+    let hasUpper = false;
+    let hasNumber = false;
+    let hasSpecial = false;
+
+    for (var x = 0; x < input.length; x++) {
+        if (!isNaN(input[x] * 1)) {
+            hasNumber = true;
+            continue;
+        }
+        if (specialChars.includes(input[x])) {
+            hasSpecial = true;
+            continue;
+        }
+        if (input[x] == input[x].toUpperCase()) {
+            hasUpper = true;
+            continue;
+        }
+        if (input[x] == input[x].toLowerCase()) {
+            hasLower = true;
+        }
+    }
+
+    if (!(hasLower && hasNumber && hasSpecial && hasUpper)) {
         message.innerHTML = "Password must contain a combination of numbers, symbols, uppercase and lowercase letters.";
-    } else if (!length1.test(input)) {
+        return false;
+    }
+    if (input.length < 12) {
         message.innerHTML = "Password must be at least 12 characters, but 14 or more is better.";
-    } else if (!length2.test(input)) {
+        return false;
+    }
+    if (input.length > 12 && input.length < 14) {
         message.innerHTML = "Password is good, but 14 or more characters is better.";
-    } else {
-        message.innerHTML = "Looks good!";
         return true;
     }
+
+    message.innerHTML = "Looks good!";
+    return true;
+
 }
 
 //Check if passwords match
@@ -133,12 +189,43 @@ function confirmPassCheck(input, pass, message) {
 
 //Check if names match correct pattern
 function nameCheck(input, message) {
-    const pattern = /^[A-Za-z]+$/;
-    if (pattern.test(input)) {
+
+    const specialChars = [
+        '[', '`', '!', '@',  '#', '$', '%',
+        '^', '&', '*', '(',  ')', '_', '+',
+        '-', '=', '[', ']',  '{', '}', ';',
+        "'", ':', '"', '\\', '|', ',', '.',
+        '<', '>', '/', '?',  '~', ']', '/'
+      ];
+
+    let hasSpecial = false;
+
+    let firstLetterUpper = false;
+    if (input.substring(0, 1) === input.substring(0, 1).toUpperCase()) {
+        firstLetterUpper = true;
+        if (!isNaN(input[x] * 1)) {
+            firstLetterUpper = false;
+        }
+        if (specialChars.includes(input[x])) {
+            firstLetterUpper = false;
+        }
+    }
+
+    for (var x = 0; x < input.length; x++) {
+        if (!isNaN(input[x] * 1)) {
+            hasSpecial = true;
+        }
+        if (specialChars.includes(input[x])) {
+            hasSpecial = true;
+        }
+    }
+    if (input === "") {
+        message.innerHTML = "This field is required.";
+    } else if (firstLetterUpper === true && hasSpecial === false) {
         message.innerHTML = "Looks good!";
         return true;
-    } else if (input === "") {
-        message.innerHTML = "This field is required.";
+    } else if (firstLetterUpper === false){
+        message.innerHTML = "The first letter must be a capital letter.";
     } else {
         message.innerHTML = "Please only use alphabetical characters.";
     }
@@ -146,8 +233,37 @@ function nameCheck(input, message) {
 
 //Check if ZIP code matches correct pattern
 function zipCheck(input, message) {
-    const pattern = /^[0-9]{4}[A-Z]{2}$/;
-    if (pattern.test(input)) {
+
+    const specialChars = [
+        '[', '`', '!', '@',  '#', '$', '%',
+        '^', '&', '*', '(',  ')', '_', '+',
+        '-', '=', '[', ']',  '{', '}', ';',
+        "'", ':', '"', '\\', '|', ',', '.',
+        '<', '>', '/', '?',  '~', ']', '/'
+      ];
+    const numbers = input.substring(0, 4)
+    const letters = input.substring(4, 6)
+
+    let notNum = false;
+    let notLet = false;
+    
+    for (var x = 0; x < numbers.length; x++) {
+        if (isNaN(numbers[x] * 1)) {
+            notNum = true;
+        } else {
+        }
+    }
+
+    for (var x = 0; x < letters.length; x++) {
+        if (!isNaN(letters[x] * 1)) {
+            notLet = true;
+        }
+        if (specialChars.includes(letters[x])) {
+            notLet = true;
+        }
+    }
+
+    if (!notNum && !notLet && input.length === 6) {
         message.innerHTML = "Looks good!";
         return true;
     } else {
