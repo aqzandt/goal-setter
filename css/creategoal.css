@@ -63,16 +63,15 @@ body {
 
 
 .goalform{
-    position: absolute;
+    position: relative;
     left: 10%;
     top: 22%;
 }
 
-
 #dateform{
-    position: absolute;
+    position: relative;
     left: 10%;
-    top: 27%;
+    top: 7%;
 }
 
 .deletebutton{
