@@ -62,7 +62,7 @@ body {
 }
 
 
-#goalform{
+.goalform{
     position: relative;
     left: 10%;
     top: 22%;
