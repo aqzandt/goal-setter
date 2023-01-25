@@ -114,9 +114,8 @@ body {
     font-style:normal;
     background-color: green;
     box-shadow: 2px 2px;
-    position:absolute;
-    top:12.5%;
-    left: 63%
+    position:relative;
+    left: 10%
 }
 
 .modify:hover{
