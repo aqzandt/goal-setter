@@ -25,7 +25,7 @@
 
         <div id="firstSpace"></div>
 
-        <form action="" target="_blank" id="signupform" onsubmit="stopsub()">
+        <form action="" target="_blank" id="signupform" onsubmit="write()">
             <input class="input" type="Text" id="email" name="email" placeholder="@"> <br>
 
             <div class="errMessageDiv">
@@ -172,14 +172,7 @@
           pHolder = document.getElementById("info");
           pHolder.innerHTML = string;
         }
-    
-        //function to prevent the redirecting when submitting the form
-        function stopsub() {
-          
-          //writes the information
-          write();
-          sendContactForm();
-        }
+
     
       </script>
 </body>
