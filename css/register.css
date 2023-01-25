@@ -108,3 +108,17 @@
 body {
     background-color: #f1f7ff;
 }
+
+#infoplace{
+    display:none;
+    font-family: 'Times New Roman', Times, serif;
+    white-space: pre;
+    color:gray;
+    font-size:20px;
+    text-align: left;
+    padding-left: 1vw;
+    border:3px solid black;
+    background-color: beige;
+    margin-left: 37%;
+    margin-right:37%
+}
