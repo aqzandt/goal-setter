@@ -102,9 +102,9 @@ body {
 }
 
 .goalimg{
-    position:absolute;
-    left: 60%;
-    top:20.5%;
+    position:relative;
+    left: 7%;
+    top:0%;
 }
 
 .modify{
